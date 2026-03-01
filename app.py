@@ -7,7 +7,7 @@ import time
 # --------------------------------------------------
 # PAGE CONFIG
 # --------------------------------------------------
-st.set_page_config(page_title="AI Dynamic Construction System", layout="wide")
+st.set_page_config(page_title="Closed-Loop Generative Structural Intelligence System", layout="wide")
 
 # --------------------------------------------------
 # DARK FUTURISTIC STYLE
@@ -30,15 +30,15 @@ body {
 </style>
 """, unsafe_allow_html=True)
 
-st.title("🏗 AI Dynamic Construction Intelligence System")
+st.title("Closed-Loop Generative Structural Intelligence System")
 st.markdown("### Real-Time Closed-Loop Generative + IoT + Adaptive Correction Platform")
 
 tabs = st.tabs([
     "Generative Design",
-    "Predictive Simulation",
-    "Live IoT Feed",
-    "AI Correction Engine",
-    "Digital Twin"
+    "Analytical Validation",
+    "Performance Monitoring",
+    "Design Recommendation Engine",
+    "Deviation Analysis & Model Sync"
 ])
 
 # =====================================================
@@ -182,3 +182,4 @@ with tabs[4]:
                        yaxis=dict(visible=False))
 
     st.plotly_chart(fig2, use_container_width=True)
+

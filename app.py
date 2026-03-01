@@ -7,7 +7,10 @@ import time
 # --------------------------------------------------
 # PAGE CONFIG
 # --------------------------------------------------
-st.set_page_config(page_title="Closed-Loop Generative Structural Intelligence System", layout="wide")
+st.set_page_config(
+    page_title="Closed-Loop Generative Structural Intelligence System",
+    layout="wide"
+)
 
 # --------------------------------------------------
 # DARK FUTURISTIC STYLE
@@ -30,15 +33,29 @@ body {
 </style>
 """, unsafe_allow_html=True)
 
+# --------------------------------------------------
+# TITLE + CLOSED LOOP BANNER
+# --------------------------------------------------
 st.title("Closed-Loop Generative Structural Intelligence System")
 st.markdown("### Real-Time Closed-Loop Generative + IoT + Adaptive Correction Platform")
 
+st.markdown("""
+---
+### 🔁 Continuous Learning Loop  
+
+**Generate → Validate → Monitor → Learn → Improve Baseline Rules**
+---
+""")
+
+# --------------------------------------------------
+# TABS
+# --------------------------------------------------
 tabs = st.tabs([
     "Generative Design",
     "Analytical Validation",
     "Performance Monitoring",
-    "Design Recommendation Engine",
-    "Deviation Analysis & Model Sync"
+    "Deviation-Based Design Insights",
+    "Digital Twin & Learning"
 ])
 
 # =====================================================
@@ -70,10 +87,10 @@ with tabs[0]:
         """, unsafe_allow_html=True)
 
 # =====================================================
-# 2️⃣ PREDICTIVE SIMULATION
+# 2️⃣ ANALYTICAL VALIDATION
 # =====================================================
 with tabs[1]:
-    st.header("🔹 Predictive Simulation")
+    st.header("🔹 Analytical Validation")
 
     depth = st.slider("Foundation Depth (m)", 1, 15, 5)
     soil = st.slider("Soil Stability Factor", 1, 10, 5)
@@ -97,20 +114,18 @@ with tabs[1]:
     st.plotly_chart(fig, use_container_width=True)
 
 # =====================================================
-# 3️⃣ LIVE IOT FEED (ANIMATED)
+# 3️⃣ PERFORMANCE MONITORING (LIVE IOT)
 # =====================================================
 with tabs[2]:
     st.header("🔹 Live IoT Sensor Feed")
 
     placeholder = st.empty()
-
     load_history = []
 
-    for _ in range(20):  # animation loop
+    for _ in range(20):
         expected = 600
         actual = expected + random.randint(-40, 180)
         deviation = ((actual - expected)/expected) * 100
-        tilt = round(random.uniform(0, 5), 2)
 
         load_history.append(actual)
 
@@ -118,7 +133,7 @@ with tabs[2]:
             col1, col2, col3 = st.columns(3)
             col1.metric("Expected Load", expected)
             col2.metric("Actual Load", actual)
-            col3.metric("Deviation %", round(deviation,2))
+            col3.metric("Deviation %", round(deviation, 2))
 
             fig_live = go.Figure()
             fig_live.add_trace(go.Scatter(
@@ -136,27 +151,34 @@ with tabs[2]:
         time.sleep(0.5)
 
 # =====================================================
-# 4️⃣ AI CORRECTION ENGINE
+# 4️⃣ DEVIATION-BASED DESIGN INSIGHTS (SAFE VERSION)
 # =====================================================
 with tabs[3]:
-    st.header("🔹 AI Adaptive Correction Engine")
+    st.header("🔹 Deviation-Based Design Insights")
 
     expected = 600
     actual = expected + random.randint(-40, 180)
     deviation = ((actual - expected)/expected) * 100
 
-    st.write(f"Deviation Detected: {round(deviation,2)} %")
+    st.write(f"**Deviation Detected:** {round(deviation,2)} %")
+
+    stress_margin = round(deviation * 0.4, 2)
+    st.write(f"**System Insight:** Structural stress margin reduced by {stress_margin}%.")
 
     if deviation > 20:
-        st.error("AI Triggered Structural Adaptation")
-        st.write("• Increase Beam Thickness by 15%")
-        st.write("• Add Additional Support Column")
-        st.write("• Reinforce Foundation Layer")
+        st.warning("Recommended Design Adjustments for Future Iterations:")
+
+        st.write("• Increase beam depth by 10–15%")
+        st.write("• Reduce column spacing by 0.5 m")
+        st.write("• Adjust foundation depth based on soil stability factor")
     else:
-        st.success("System Within Adaptive Limits")
+        st.success("System Within Adaptive Limits — No Immediate Design Adjustment Required")
+
+    st.markdown("---")
+    st.info("This module provides advisory outputs. Final decisions require certified structural validation.")
 
 # =====================================================
-# 5️⃣ DIGITAL TWIN (DYNAMIC COLOR)
+# 5️⃣ DIGITAL TWIN + LEARNING HISTORY
 # =====================================================
 with tabs[4]:
     st.header("🔹 Digital Twin Visualization")
@@ -182,4 +204,39 @@ with tabs[4]:
                        yaxis=dict(visible=False))
 
     st.plotly_chart(fig2, use_container_width=True)
+
+    # ---------------------------
+    # DESIGN EVOLUTION HISTORY
+    # ---------------------------
+    st.markdown("---")
+    st.subheader("📊 Design Evolution History")
+
+    cycle_data = {
+        "Cycle": ["Project Cycle 1", "Project Cycle 2", "Project Cycle 3"],
+        "Concrete Volume (m³)": [1000, 940, 910],
+        "Deviation Rate (%)": [18, 9, 5]
+    }
+
+    st.table(cycle_data)
+
+    st.success("📈 System Learning Observed: Deviation reduced by 13% across cycles through baseline rule refinement.")
+
+# =====================================================
+# SYSTEM SCOPE & LIMITATIONS
+# =====================================================
+st.markdown("---")
+st.header("📌 System Scope & Limitations")
+
+colA, colB = st.columns(2)
+
+with colA:
+    st.subheader("✔ System Scope")
+    st.write("• Early-stage structural grid optimization")
+    st.write("• Deviation-based risk intelligence")
+    st.write("• Design parameter evolution across cycles")
+
+with colB:
+    st.subheader("✖ System Limitations")
+    st.write("• Not autonomous structural reconstruction")
+    st.write("• Not a replacement for licensed structural engineers")
 

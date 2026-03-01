@@ -151,7 +151,7 @@ with tabs[2]:
         time.sleep(0.5)
 
 # =====================================================
-# 4️⃣ DEVIATION-BASED DESIGN INSIGHTS (SAFE VERSION)
+# 4️⃣ DEVIATION-BASED DESIGN INSIGHTS
 # =====================================================
 with tabs[3]:
     st.header("🔹 Deviation-Based Design Insights")
@@ -221,22 +221,4 @@ with tabs[4]:
 
     st.success("📈 System Learning Observed: Deviation reduced by 13% across cycles through baseline rule refinement.")
 
-# =====================================================
-# SYSTEM SCOPE & LIMITATIONS
-# =====================================================
-st.markdown("---")
-st.header("📌 System Scope & Limitations")
-
-colA, colB = st.columns(2)
-
-with colA:
-    st.subheader("✔ System Scope")
-    st.write("• Early-stage structural grid optimization")
-    st.write("• Deviation-based risk intelligence")
-    st.write("• Design parameter evolution across cycles")
-
-with colB:
-    st.subheader("✖ System Limitations")
-    st.write("• Not autonomous structural reconstruction")
-    st.write("• Not a replacement for licensed structural engineers")
 
